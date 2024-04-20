@@ -10,7 +10,7 @@ class JoblistingController extends Controller
 {
     public function index(Request $request)
     {
-        if (auth()->user()->user_type === 'employer') {
+        if (auth()->user() && auth()->user()->user_type === 'employer') {
             return redirect('dashboard');
         }
         $salary = $request->query('salary');
